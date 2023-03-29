@@ -18,6 +18,7 @@ TEST_CASE("Init player (1)") {
     CHECK(p.getSumpnt() == 0);
     CHECK(p.getName().compare("Alice"));
 }
+
 TEST_CASE("Test one Turn (2)"){
     Player p1("Alice");
     Player p2("Bob");
@@ -47,9 +48,8 @@ TEST_CASE("Test one Turn (2)"){
             CHECK(p2.cardesTaken() == 6);
         }
     }
-
-
 }
+
 TEST_CASE("Test stacks after all game (3)"){
     Player p1("Alice");
     Player p2("Bob");
@@ -73,6 +73,7 @@ TEST_CASE("Test stacks after some turn (4)"){
     CHECK(p2.stacksize() == p1.stacksize());
     CHECK((p2.cardesTaken()+p1.cardesTaken()) >= 10);
 }
+
 TEST_CASE("Test play one turn after empty stack - Error (5)"){
     Player p1("Alice");
     Player p2("Bob");
@@ -88,7 +89,6 @@ TEST_CASE("Test play one turn after empty stack - Error (5)"){
     CHECK_THROWS(game.playTurn());  // check that some exception is thrown
 }
 
-//TO DO
 TEST_CASE("Play two games at same time (6)"){
     Player p1("Alice");
     Player p2("Bob");
@@ -120,7 +120,7 @@ TEST_CASE("Try to print last turn before play a turn - Error (8)"){
     Player p2("Bob");
 
     Game game(p1,p2);
-    //cant print last turn because havn't last turn
+    //cant print last turn because havn't turns
     CHECK_THROWS(game.printLastTurn());
 }
 
@@ -237,7 +237,6 @@ TEST_CASE("check set card with duplicated values (17)"){
     p1.setCrd(6);
 
     CHECK_THROWS(p1.setCrd(6));
-
 }
 
 TEST_CASE("check set card with errors values (18)"){
